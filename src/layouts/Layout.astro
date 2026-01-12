@@ -1,22 +1,173 @@
+---
+import "../styles/global.css";
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+}
+
+const { 
+  title = "Ê! AI Assistant - Trợ lý ảo thông minh cho người Việt",
+  description = "Ê! AI Assistant - Trợ lý ảo 'biết điều' dành riêng cho bạn. Hiểu ý nhanh, phản hồi tinh tế. Trải nghiệm AI giao tiếp thế hệ mới.",
+  keywords = "AI assistant, trợ lý ảo, chatbot Việt Nam, AI Việt, trợ lý thông minh, ứng dụng AI",
+  image = "/og-image.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://e-assistant.vn');
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html class="dark" lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Ê! AI Team" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/Logo.png" />
+    <link rel="apple-touch-icon" href="/Logo.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Ê! AI Assistant" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="msapplication-TileColor" content="#8b5cf6" />
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Ê! AI Assistant",
+        "description": "Trợ lý ảo thông minh dành cho người Việt",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "iOS, Android",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "VND"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "1000"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white transition-colors duration-300 h-screen overflow-hidden"
+  >
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Logo transition effect */
+  .logo-container {
+    position: relative;
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    opacity: 0;
+    transition:
+      opacity 0.8s ease-in-out,
+      transform 0.5s ease;
+  }
+
+  .logo-image.active {
+    opacity: 1;
+  }
+
+  .logo-container:hover .logo-image.active {
+    transform: scale(1.1);
+  }
+
+  .mood-label {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #a78bfa;
+  }
+
+  .logo-container:hover .mood-label {
+    opacity: 1;
+  }
 </style>

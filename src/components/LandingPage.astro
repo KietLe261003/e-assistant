@@ -1,0 +1,346 @@
+---
+import { Image } from "astro:assets";
+import sleepyImg from "../assets/Image/Gemini_Generated_Image_2hofz52hofz52hof (1).png";
+import hungryImg from "../assets/Image/Gemini_Generated_Image_4wdpyh4wdpyh4wdp (1).png";
+import excitedImg from "../assets/Image/Gemini_Generated_Image_frb8orfrb8orfrb8 (1).png";
+import happyImg from "../assets/Image/Gemini_Generated_Image_irfb0pirfb0pirfb (2).png";
+import workingImg from "../assets/Image/Gemini_Generated_Image_mat714mat714mat7 (1).png";
+---
+
+<!-- Background Effects - Decorative -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+  <img
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover opacity-10 dark:opacity-40 mix-blend-screen transition-opacity duration-500"
+    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA03hMFggheULbFLu3TheJMEdX9nv0aS-T3VALjBNMUCStg9SqK4eja4_nCvO1gZFzqj6C2wFm9o6RFKHXtpsetIDqo_88Glo-N8NThOA6GKdnMZ05o_ciJLT50dByH76HE-Mwahe-iSSeu2KMPic0d8_ewOVSlPQqqnwJkbiSCNmyaez_7f4aCL2_HgFCnLKb6k8sMyB5S8sUAmYIYQM66GCmLosjIgxepwqhy4hXA7Tu3A3VC3SoRM-r_C6EXXm6kK-WO3DYXiA"
+    loading="lazy"
+  />
+  <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply dark:mix-blend-screen blur-[80px] opacity-30 dark:opacity-40 animate-blob"></div>
+  <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply dark:mix-blend-screen blur-[80px] opacity-30 dark:opacity-40 animate-blob animation-delay-2000"></div>
+  <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply dark:mix-blend-screen blur-[80px] opacity-30 dark:opacity-40 animate-blob animation-delay-4000"></div>
+  <div class="absolute top-1/2 right-0 lg:right-1/4 transform -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial from-indigo-500/20 to-transparent rounded-full blur-3xl opacity-50 dark:opacity-70"></div>
+</div>
+
+<!-- ==================== HEADER / NAVIGATION ==================== -->
+<header class="relative z-50 w-full px-4 py-3 lg:px-6 lg:py-4" role="banner">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center" aria-label="Main navigation">
+    <!-- Logo -->
+    <a 
+      class="group flex items-center gap-2" 
+      href="/" 
+      aria-label="Ê! AI Assistant - Trang chủ"
+      title="Ê! AI Assistant"
+    >
+      <div class="logo-container shadow-lg shadow-primary/30 group-hover:shadow-primary/50">
+        <Image src={sleepyImg} alt="Ê! AI - Buồn ngủ" class="logo-image" data-mood="sleepy" width={44} height={44} loading="eager" />
+        <Image src={hungryImg} alt="Ê! AI - Đói bụng" class="logo-image" data-mood="hungry" width={44} height={44} loading="eager" />
+        <Image src={excitedImg} alt="Ê! AI - Hớn hở" class="logo-image" data-mood="excited" width={44} height={44} loading="eager" />
+        <Image src={happyImg} alt="Ê! AI - Vui vẻ" class="logo-image" data-mood="happy" width={44} height={44} loading="eager" />
+        <Image src={workingImg} alt="Ê! AI - Làm việc" class="logo-image" data-mood="working" width={44} height={44} loading="eager" />
+        <span class="mood-label" id="moodLabel" aria-live="polite">Đang tải...</span>
+      </div>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+      <a class="hover:text-primary transition-colors" href="#features" aria-label="Xem tính năng">Tính năng</a>
+      <a class="hover:text-primary transition-colors" href="#about" aria-label="Về chúng tôi">Về chúng tôi</a>
+      <a class="hover:text-primary transition-colors" href="#blog" aria-label="Đọc blog">Blog</a>
+      <button
+        id="themeToggle"
+        class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+        type="button"
+        aria-label="Chuyển đổi chế độ sáng/tối"
+        title="Chuyển đổi theme"
+      >
+        <i id="moonIcon" class="fas fa-moon" style="display: none;" aria-hidden="true"></i>
+        <i id="sunIcon" class="fas fa-sun text-yellow-400" aria-hidden="true"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      class="md:hidden text-2xl text-slate-800 dark:text-white" 
+      aria-label="Mở menu điều hướng"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+  </nav>
+</header>
+
+<!-- ==================== HERO SECTION ==================== -->
+<main class="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-6 py-2 lg:py-4 flex flex-col lg:flex-row items-center justify-center h-[calc(100vh-70px)]" role="main">
+  
+  <!-- Hero Content -->
+  <section class="w-full lg:w-1/2 text-center lg:text-left space-y-4 lg:space-y-6 flex flex-col justify-center" aria-labelledby="hero-title">
+    
+    <!-- Social Links (Desktop) -->
+    <aside class="hidden lg:block absolute left-2 top-2/3 -translate-y-1/2 -rotate-90 origin-left text-xs tracking-[0.3em] text-slate-400 dark:text-slate-500 font-medium" aria-label="Mạng xã hội">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary">FACEBOOK</a> / 
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary">INSTAGRAM</a> / 
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary">TWITTER</a>
+    </aside>
+    
+    <!-- Hero Text -->
+    <article class="space-y-3">
+      <span class="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider uppercase" role="status">
+        Coming Soon
+      </span>
+      
+      <h1 id="hero-title" class="font-display text-4xl lg:text-6xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
+        Ê! <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-glow">
+          Trợ lý ảo 'biết điều'
+        </span>
+      </h1>
+      
+      <p class="text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
+        Hiểu ý nhanh, phản hồi tinh tế. Trải nghiệm <strong>AI giao tiếp thế hệ mới</strong> dành riêng cho bạn.
+      </p>
+    </article>
+    
+    <!-- ==================== DOWNLOAD BUTTONS ==================== -->
+    <nav class="flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start" aria-label="Tải ứng dụng">
+      <a
+        href="https://apps.apple.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative px-6 py-3 bg-white dark:bg-white text-slate-900 rounded-full font-semibold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-3 overflow-hidden"
+        aria-label="Tải ứng dụng từ App Store"
+      >
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"></div>
+        <i class="fab fa-apple text-xl relative z-10" aria-hidden="true"></i>
+        <div class="text-left relative z-10">
+          <span class="text-[10px] uppercase tracking-wide leading-none opacity-80 block">Download on the</span>
+          <span class="text-sm font-bold leading-none mt-1 block">App Store</span>
+        </div>
+      </a>
+      
+      <a
+        href="https://play.google.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-6 py-3 bg-slate-900 dark:bg-transparent dark:border dark:border-white/20 text-white rounded-full font-semibold shadow-lg hover:bg-slate-800 dark:hover:bg-white/10 transition-all transform hover:-translate-y-0.5 flex items-center gap-3 backdrop-blur-sm"
+        aria-label="Tải ứng dụng từ Google Play"
+      >
+        <i class="fab fa-google-play text-lg text-green-400" aria-hidden="true"></i>
+        <div class="text-left">
+          <span class="text-[10px] uppercase tracking-wide leading-none opacity-70 block">Get it on</span>
+          <span class="text-sm font-bold leading-none mt-1 block">Google Play</span>
+        </div>
+      </a>
+    </nav>
+    
+    <!-- Progress Bar -->
+    <div class="pt-4 flex items-center gap-4 justify-center lg:justify-start opacity-70" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Tiến độ phát triển: 62%">
+      <div class="w-full max-w-[180px] h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-cyan-400 to-pink-500 w-[62%] rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
+      </div>
+      <span class="text-xs font-mono text-slate-500 dark:text-slate-400">62%</span>
+    </div>
+  </section>
+  
+  <!-- ==================== FEATURE SECTION - Phone Mockup ==================== -->
+  <section class="w-full lg:w-1/2 flex justify-center items-center relative perspective-1000" aria-label="Demo ứng dụng" id="features">
+    <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full filter blur-[60px] transform scale-75 animate-pulse-slow" aria-hidden="true"></div>
+    
+    <!-- Phone Device -->
+    <figure class="relative w-[240px] sm:w-[280px] h-[480px] sm:h-[540px] lg:w-[300px] lg:h-[600px] bg-slate-900 rounded-[2.5rem] shadow-2xl border-6 border-slate-900 dark:border-slate-800 ring-1 ring-white/10 dark:ring-white/20 animate-float z-10 overflow-hidden">
+      <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-white/10 to-transparent pointer-events-none z-30 rounded-[2.5rem]" aria-hidden="true"></div>
+      <div class="absolute top-0 inset-x-0 h-8 bg-black z-30 flex justify-center" aria-hidden="true">
+        <div class="w-24 h-6 bg-black rounded-b-xl"></div>
+      </div>
+      
+      <!-- App Screen -->
+      <div class="w-full h-full bg-surface-dark bg-opacity-90 flex flex-col relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614730341194-75c60740a2d3?q=80&w=1000&auto=format&fit=crop')] opacity-20 bg-cover bg-center" aria-hidden="true"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a1a] to-[#0a0a1a]" aria-hidden="true"></div>
+        
+        <!-- App Header -->
+        <div class="relative z-10 p-6 pt-12 flex justify-between items-center bg-gradient-to-b from-black/50 to-transparent">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-400 to-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/30" aria-hidden="true">
+              <i class="fas fa-wave-square text-white text-sm"></i>
+            </div>
+            <div>
+              <h3 class="text-white font-bold text-lg">Ê! Assistant</h3>
+              <p class="text-xs text-green-400 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" aria-hidden="true"></span>
+                <span>Online</span>
+              </p>
+            </div>
+          </div>
+          <button class="text-white/70 hover:text-white" aria-label="Cài đặt">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+          </button>
+        </div>
+        
+        <!-- Chat Messages -->
+        <div class="flex-1 relative z-10 px-4 py-2 overflow-y-auto scrollbar-hide flex flex-col gap-6">
+          <time class="text-center text-xs text-slate-500 my-2" datetime="2026-01-12T10:23">Hôm nay, 10:23 AM</time>
+          
+          <!-- User Message -->
+          <div class="flex flex-col items-end gap-1">
+            <div class="glass-panel text-white p-4 rounded-2xl rounded-tr-sm max-w-[85%] shadow-lg">
+              <p class="text-sm leading-relaxed">Ê, nay sếp đang quạu, tôi nên xin nghỉ phép sao cho khéo?</p>
+            </div>
+            <span class="text-[10px] text-slate-500 pr-1">Read</span>
+          </div>
+          
+          <!-- AI Response -->
+          <div class="flex flex-col items-start gap-1">
+            <div class="flex items-end gap-2 mb-1">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-400 to-purple-500 flex-shrink-0" aria-hidden="true"></div>
+              <span class="text-xs text-slate-400">Ê! AI</span>
+            </div>
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl rounded-tl-sm opacity-70 blur-sm group-hover:opacity-100 transition duration-200" aria-hidden="true"></div>
+              <div class="relative bg-slate-900 border border-white/10 text-slate-100 p-4 rounded-2xl rounded-tl-sm max-w-[90%] shadow-xl">
+                <p class="text-sm leading-relaxed mb-3">
+                  Hmm, sếp đang 'nóng' thì mình nên dùng chiến thuật <em class="text-pink-400 font-medium not-italic">'mưa dầm thấm lâu'</em>. Gợi ý mẫu câu này nha:
+                </p>
+                <blockquote class="bg-white/5 border border-white/10 rounded-xl p-3 mt-2 cursor-pointer hover:bg-white/10 transition-colors">
+                  <div class="flex items-start gap-2">
+                    <i class="fas fa-quote-left text-xs text-purple-400 mt-1" aria-hidden="true"></i>
+                    <p class="text-xs italic text-slate-300">"Sếp ơi, em thấy dự án X đang tiến triển tốt. Em đã chuẩn bị sẵn phần Y để sếp duyệt. Tiện thể, em xin phép..."</p>
+                  </div>
+                  <div class="mt-2 flex justify-end">
+                    <button class="text-[10px] bg-purple-600 hover:bg-purple-500 text-white px-2 py-1 rounded transition-colors" aria-label="Sao chép tin nhắn">
+                      Sao chép
+                    </button>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Typing Indicator -->
+          <div class="flex items-center gap-1 ml-1 mt-2" aria-label="Đang nhập..." role="status">
+            <span class="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce"></span>
+            <span class="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+            <span class="w-1.5 h-1.5 bg-slate-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+          </div>
+        </div>
+        
+        <!-- Input Area -->
+        <div class="relative z-10 p-4 pb-8">
+          <div class="glass-panel rounded-full p-1.5 flex items-center gap-2">
+            <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 transition" aria-label="Thêm tệp đính kèm">
+              <i class="fas fa-plus text-xs" aria-hidden="true"></i>
+            </button>
+            <input
+              class="bg-transparent border-none text-white text-sm w-full focus:ring-0 placeholder-white/30"
+              disabled
+              placeholder="Nhập tin nhắn..."
+              type="text"
+              aria-label="Nhập tin nhắn"
+            />
+            <button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/40" aria-label="Gửi tin nhắn">
+              <i class="fas fa-paper-plane text-xs" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <figcaption class="sr-only">Demo giao diện chat của ứng dụng Ê! AI Assistant</figcaption>
+    </figure>
+  </section>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="fixed bottom-4 left-4 z-20 hidden lg:block" role="contentinfo">
+  <address class="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 not-italic">
+    <span class="mb-1 text-slate-600 dark:text-slate-600 block">Our locations</span>
+    <span class="text-slate-800 dark:text-white font-bold">KYIV</span>
+    <span class="mx-1">·</span>
+    <span class="text-slate-800 dark:text-white font-bold">SAN FRANCISCO</span>
+  </address>
+</footer>
+
+<!-- Page Navigation -->
+<nav class="fixed bottom-1/2 right-4 z-20 hidden lg:flex flex-col gap-3 text-[10px] font-mono translate-y-1/2" aria-label="Điều hướng trang">
+  <a href="#hero" class="text-white font-bold cursor-pointer" aria-label="Trang 1" aria-current="page">01</a>
+  <a href="#features" class="text-slate-600 cursor-pointer hover:text-slate-400" aria-label="Trang 2">02</a>
+  <a href="#about" class="text-slate-600 cursor-pointer hover:text-slate-400" aria-label="Trang 3">03</a>
+  <a href="#contact" class="text-slate-600 cursor-pointer hover:text-slate-400" aria-label="Trang 4">04</a>
+</nav>
+
+<script is:inline>
+  // Logo mood changer based on time of day
+  function updateLogoMood() {
+    const hour = new Date().getHours();
+    let activeMood = "working";
+    let moodText = "Đang làm việc";
+
+    if (hour >= 5 && hour < 10) {
+      activeMood = "sleepy";
+      moodText = "😴 Buồn ngủ quá...";
+    } else if (hour >= 10 && hour < 14) {
+      activeMood = "hungry";
+      moodText = "🍜 Đói bụng ghê!";
+    } else if (hour >= 16 && hour < 18) {
+      activeMood = "excited";
+      moodText = "🎉 Sắp được về!";
+    } else if (hour >= 18 && hour < 23) {
+      activeMood = "happy";
+      moodText = "😄 Vui vẻ nè!";
+    } else {
+      activeMood = "working";
+      moodText = "💼 Đang chăm chỉ";
+    }
+
+    // Remove active class from all images
+    document.querySelectorAll(".logo-image").forEach((img) => {
+      img.classList.remove("active");
+    });
+
+    // Add active class to current mood
+    const activeImg = document.querySelector(
+      `.logo-image[data-mood="${activeMood}"]`
+    );
+    if (activeImg) {
+      activeImg.classList.add("active");
+    }
+
+    // Update mood label
+    const moodLabel = document.getElementById("moodLabel");
+    if (moodLabel) {
+      moodLabel.textContent = moodText;
+    }
+  }
+
+  // Theme toggle functionality
+  function initThemeToggle() {
+    const themeToggle = document.getElementById("themeToggle");
+    const moonIcon = document.getElementById("moonIcon");
+    const sunIcon = document.getElementById("sunIcon");
+    
+    function updateIcons() {
+      const isDark = document.documentElement.classList.contains("dark");
+      if (isDark) {
+        moonIcon.style.display = "none";
+        sunIcon.style.display = "inline";
+      } else {
+        moonIcon.style.display = "inline";
+        sunIcon.style.display = "none";
+      }
+    }
+    
+    // Initial icon state
+    updateIcons();
+    
+    themeToggle?.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      updateIcons();
+    });
+  }
+
+  // Initialize on load
+  updateLogoMood();
+  initThemeToggle();
+
+  // Update every minute
+  setInterval(updateLogoMood, 60000);
+</script>
