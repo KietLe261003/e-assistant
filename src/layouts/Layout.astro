@@ -94,7 +94,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://e-assist
     </script>
   </head>
   <body
-    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white transition-colors duration-300 min-h-screen overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-hidden"
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white transition-colors duration-300 min-h-screen overflow-x-hidden overflow-y-auto lg:h-screen lg:overflow-hidden scrollbar-hide"
   >
     <slot />
   </body>
@@ -105,6 +105,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://e-assist
   body {
     height: 100%;
     overflow: hidden;
+  }
+
+  /* Hide scrollbar for all browsers */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  main::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  html,
+  body,
+  main {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .glass-panel {
